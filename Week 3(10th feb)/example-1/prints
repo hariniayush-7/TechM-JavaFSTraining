@@ -1,5 +1,3 @@
-package exmples;
-
 public class Prints {
 	
 	    public static void main(String[] args) {
