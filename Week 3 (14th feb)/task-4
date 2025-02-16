@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Address Alert</title>
+<body>
+    <h1>Welcome to Address Collector</h1>
+    <button onclick="displayAddress()">Submit Address</button>
+</body>
+    <script>
+        function displayAddress() {
+          let text;
+            var address = prompt("Please enter your address:");
+            if (address== null || address == ""){
+              alert("Please enter the address properly");
+            }
+            else 
+            {
+              alert("Your address is: " + address);
+            }
+        }
+    </script>
+</head>
+
+</html>
