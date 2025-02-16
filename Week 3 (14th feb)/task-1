@@ -1,1 +1,7 @@
+// JAVASCRIPT CODE
 
+function cube(a)
+{
+console.log(a*a*a);
+}
+cube(17);
