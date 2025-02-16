@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
 
+<h2>MOVIE YES OR NO?</h2>
+
+
+<button onclick="pleaseConfirm()">Please confirm!</button>
+
+<p id="para1"></p>
+
+<script>
+function pleaseConfirm() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "YASSS WE GOINGGGG";
+  } else {
+    txt = "NOT TODAY";
+  }
+  document.getElementById("para1").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>
