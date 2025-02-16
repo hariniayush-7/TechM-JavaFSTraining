@@ -1,1 +1,8 @@
-
+let price=[23,45,50,28,55,35,35];
+var mean=0;
+for (let i = 0; i < price.length; i++)
+  mean+=price[i];
+if(mean>50)
+   console.log("great profit");
+else
+   console.log("poor profit");
