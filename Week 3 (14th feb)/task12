@@ -1,0 +1,6 @@
+var num1 = 2
+var num2= 5
+for(i=1;i<=num2;i++)
+{
+  console.log(num1+' * ' + i+ " ="+ num1*i);
+}
