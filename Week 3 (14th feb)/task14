@@ -1,0 +1,15 @@
+var a=5
+var b=35
+if(b-a == 30)
+{
+ for(i=a;i<=b;i++)
+{
+  console.log(i);
+  if(i%7==0)
+  break;
+} 
+}
+else
+{
+  console.log("the given numbers interval is not of 30");
+}
