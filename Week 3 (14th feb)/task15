@@ -1,0 +1,15 @@
+var a=7
+var b=57
+if(b-a == 50)
+{
+ for(i=a;i<=b;i++)
+{
+  console.log(i);
+  if(i%5==0)
+  break;
+} 
+}
+else
+{
+  console.log("the given numbers interval is not of 50");
+}
