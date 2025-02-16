@@ -1,0 +1,21 @@
+var day= "Sunday"
+switch (day) {
+  case 'Monday':
+    console.log("Start of the week");
+    break;
+  case 'Tuesday':
+  case 'wednesday':
+  case 'Thursday':
+    console.log("Mid of the week");
+    break;
+  case 'Friday':
+    console.log("Last working day of the week");
+    break;
+  case 'Saturday':
+    console.log("Weekend-Saturday!!!!");
+    break;
+    case 'Sunday':
+    console.log("Weekend-Sunday!!!!!!!");
+    break;
+  default : console.log("Invalid Input");
+}
