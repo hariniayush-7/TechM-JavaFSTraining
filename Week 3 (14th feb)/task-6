@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>USER AGE</h2>
+
+<button onclick="myFunction()">YOUR AGE</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let age = prompt("Please enter your age:", "Enter your age");
+  if (isNaN(age)) {
+    alert("Invalid answer, Please try again");
+  } else {
+    alert("The age of the user is: " + age);
+    document.getElementById("demo").innerHTML = "User age is: " + age;
+  }
+}
+</script>
+
+</body>
+</html>
