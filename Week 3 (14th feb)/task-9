@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Address Alert</title>
+</head>
+<body>
+    <h1>IS IT LEAP YEAR OR NOT?</h1>
+    <button onclick="info()">Enter the info</button>
+    <p id="result"></p>
+</body>
+    <script>
+        function info() {
+          var text;
+          var year = prompt("Please enter the year: ");
+          var month = prompt("Please enter the month:");
+          if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) 
+          {
+            if (month.toLowerCase() === "february") {
+              text = "The year is a leap year and the month is February with 29 days.";
+            } else {
+              text = "The year is a leap year and the month is not February.";
+            }
+          } 
+          else 
+          {
+            text = "The given year is not a leap year.";
+          }
+          document.getElementById("result").innerText = text;
+        }
+    </script>
+</html>
 
