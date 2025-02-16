@@ -1,0 +1,6 @@
+//JAVA SCRIPT CODE
+var b= 10
+if(b>0)
+console.log("given nuber is positive");
+else
+console.log("given nuber is negative");
