@@ -1,0 +1,16 @@
+function digi(a)
+{
+var last=a%10
+var first=Math.floor(a/10)
+var sum=first+last
+if(sum%2===0)
+{
+  console.log("The given number is Even");
+}
+else
+{
+  console.log("The given number is Odd");
+}
+}
+
+digi(87)
