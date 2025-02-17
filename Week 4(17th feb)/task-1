@@ -1,1 +1,11 @@
+function table()
+{
+var a=10
+var b=5
+for(i=1;i<=b;i++)
+{
+  console.log(a+' * ' + i+ " ="+ a*i);
+}
+}
 
+table()
