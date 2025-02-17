@@ -1,7 +1,5 @@
-function factor()
+function factor(a)
 {
-var a=90
-
 for(i=1;i<=a;i++)
 {
   if(a%i===0)
@@ -9,4 +7,4 @@ for(i=1;i<=a;i++)
 }
 }
 
-factor()
+factor(90)
