@@ -1,0 +1,58 @@
+let student = {id:"pecec138",
+name:"Harini", 
+dept:"ECE",
+college:"PEC",
+email:"hariniayush17@gmail.com"};
+
+console.log(student)
+
+//Accessing the student object
+function access()
+{
+  console.log(student.name +"'s ID : "+student.id);
+  console.log(student.name+" is in "+student.dept+" department in the "+student.college+" college");
+  console.log(student.name+"'s Email is "+student.email);
+}
+access()
+
+console.log("---------------------------------------------------------------");
+
+//Adding another object
+let address={ doorNo:9456,
+street:"West Park Dr",
+area:"Brooklyn",
+pincode:"NY 111"};
+
+function access1()
+{
+  console.log("The doorNo of the "+student.name+"'s home is "+address.doorNo);
+  console.log("The Street name of the "+student.name+" is "+address.street);
+  console.log("The area of the "+student.name+" is "+address.area);
+  console.log(student.name+"'s pincode is "+address.pincode);
+}
+access1()
+
+console.log("----------------------------------------------------------------");
+
+//deleting function
+function duplicate()
+{
+  console.log("Student ID is : "+student.id);
+  console.log("Student Name is : "+student.name);
+  console.log("Student Email is : "+student.email);
+}
+duplicate()
+
+function duplicate()
+{
+  console.log("The function used to display the details have been deleted");
+}
+
+
+console.log("----------------------------------------------------------------");
+
+//deleting property
+delete student.email;
+console.log(student)
+console.log("Email property is deleted");
+
