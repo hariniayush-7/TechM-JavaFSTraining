@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    <script type="text/javascript">
+      let rt1 = document.getElementById("root1");
+      let header1 = document.createElement("h1");
+
+      header1.innerText = "About React!!!";
+      rt1.appendChild(header1);
+   </script>
+<script type="text/jsx">
+        let rt2 = document.getElementById("root2");
+        ReactDOM.render(<h1>React with JSX!!</h1>,rt2);
+</script>
+    
+</body>
+</html>
