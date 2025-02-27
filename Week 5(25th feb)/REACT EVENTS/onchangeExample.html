@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React App</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root1"></div>
+    <div id="root2"></div>
+
+    <script type="text/babel">
+
+
+      function ChangeExample1() {
+        const [text, setText] = React.useState(""); // State to store input value
+
+        const handleChange = (event) => {
+          setText(event.target.value); // Update state when input changes
+        };
+
+        return (
+          <div>
+            <h1>METHOD 1</h1>
+            <input type="text" onChange={handleChange} placeholder="Type here" />
+            <p>Typed Text: {text}</p>
+          </div>
+        );
+      }
+
+
+
+
+
+      function ChangeExample2() {
+        const [inp, setINP] = React.useState(""); // Use React.useState
+        const [name, setName] = React.useState("");
+
+        const clk = () => {
+          setName(inp);
+          setINP("");
+        };
+
+        return (
+          <div>
+            <h1>METHOD 2</h1>
+            <input
+              type="text"
+              placeholder="Enter your name..."
+              onChange={(e) => setINP(e.target.value)}
+              value={inp}
+            />
+            {name ? <h4>Your Name: {name}</h4> : null}
+            <button onClick={clk}>Save</button>
+          </div>
+        );
+      }
+
+      const root1 = ReactDOM.createRoot(document.getElementById("root1"));
+      root1.render(<ChangeExample1 />);
+
+      const root2 = ReactDOM.createRoot(document.getElementById("root2"));
+      root2.render(<ChangeExample2 />);
+    </script>
+  </body>
+</html>

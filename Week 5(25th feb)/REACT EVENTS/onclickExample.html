@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    
+
+    <script type="text/babel">
+      function Football() {
+        const shoot = () => {
+           
+          alert("Great Shot!");
+        };
+
+        return <div>
+            <h1>METHOD 1</h1>
+        <button onClick={shoot}>Take the shot!</button>
+        </div>
+      }
+
+      
+      const App = () => {
+        
+        const [num, setNum] = React.useState(false);
+        const [btn, setBtn] = React.useState(false);
+
+        const handleClick = () => {
+          setNum(!num);
+          setBtn(!btn);
+        };
+
+        return (
+          <div>
+            <h1>METHOD 2</h1>
+            <h2>
+              {" "}
+              {num ? "onClick event performed" : "onClick event not performed"}
+            </h2>
+            <button onClick={handleClick}>{btn ? "clicked" : "onClick"}</button>
+          </div>
+        );
+      };
+
+      const root1 = ReactDOM.createRoot(document.getElementById("root1"));
+      root1.render(<Football />);
+
+      const root2 = ReactDOM.createRoot(document.getElementById("root2"));
+      root2.render(<App />);
+    </script>
+  </body>
+</html>
