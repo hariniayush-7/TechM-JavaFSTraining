@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React App</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function EvenNumber(props) {
+        return <h1>The given number {props.num} is even</h1>;
+      }
+
+      function OddNumber(props) {
+        return <h1>The given number {props.num} is odd</h1>;
+      }
+
+      function CheckNumber(props) {
+        const isNum = Number(props.num); // Convert to number explicitly
+        if (isNum % 2 === 0) {
+          return <EvenNumber num={isNum} />;
+        }
+        return <OddNumber num={isNum} />;
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<CheckNumber num={903} />); // Change this number to test
+    </script>
+  </body>
+</html>
