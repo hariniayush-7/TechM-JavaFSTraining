@@ -1,0 +1,57 @@
+{
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Satya Nadella",
+            "title": "CEO",
+            "company": "Microsoft",
+            "topic": "Digital Transformation and AI Innovation",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/78/MS-Exec-Nadella-Satya-2017-08-31-22_%28cropped%29.jpg",
+            "bio": "Satya Nadella is the CEO of Microsoft, leading the company's transformation in cloud computing and artificial intelligence."
+        },
+        {
+            "id": 2,
+            "name": "Fei-Fei Li",
+            "title": "Professor of Computer Science",
+            "company": "Stanford University",
+            "topic": "AI and Computer Vision",
+            "image": "https://news.cornell.edu/sites/default/files/styles/breakout/public/0913_li_0.jpg?itok=fmNgbJ6O",
+            "bio": "Dr. Li is a pioneer in AI and computer vision, co-director of Stanford's Human-Centered AI Institute, and former Chief Scientist at Google Cloud."
+        },
+        {
+            "id": 3,
+            "name": "Jensen Huang",
+            "title": "CEO and Co-founder",
+            "company": "NVIDIA",
+            "image": "https://www.eetasia.com/wp-content/uploads/sites/2/2023/05/Press_Image_NVIDIA_Keynote_at_COMPUTEX_hero.jpg?w=600&h=400&crop=1",
+            "bio": "Jensen Huang co-founded NVIDIA, revolutionizing computing with GPU technology and advancing AI capabilities."
+        },
+        {
+            "id": 4,
+            "name": "Sam Altman",
+            "title": "CEO",
+            "company": "OpenAI",
+            "topic": "The Future of Artificial General Intelligence",
+            "image": "https://media.wired.com/photos/59322e8544db296121d698e1/master/pass/SamAltman1.jpg",
+            "bio": "Sam Altman leads OpenAI, driving breakthrough developments in artificial intelligence and language models."
+        },
+        {
+            "id": 5,
+            "name": "Reshma Saujani",
+            "title": "Founder",
+            "company": "Girls Who Code",
+            "topic": "Diversity in Tech and Coding Education",
+            "image": "https://assets.teenvogue.com/photos/5b3533372fb2e50bb1ac562c/4:3/w_3776,h_2832,c_limit/RESHMA%20SAUJANI%20HEADSHOT.jpg",
+            "bio": "Reshma Saujani founded Girls Who Code, working to close the gender gap in technology and transform the industry."
+        },
+        {
+            "id": 6,
+            "name": "Marc Andreessen",
+            "title": "Co-founder",
+            "company": "Andreessen Horowitz",
+            "topic": "Future of Tech Investment and Innovation",
+            "image": "https://cdn.magzter.com/1350668721/1681711944/articles/hRj2c-I941681737567849/MARC-ANDREESSEN-ON-ARTIFICIAL-INTELLIGENCE-AND-THE-FUTURE.jpg",
+            "bio": "Marc Andreessen is a pioneer of the web browser, co-founder of Netscape, and leading technology investor."
+        }
+    ]
+}
