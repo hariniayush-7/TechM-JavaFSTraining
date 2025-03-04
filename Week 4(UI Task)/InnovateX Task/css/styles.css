@@ -13,10 +13,17 @@
     --white: #ffffff;
 }
 
-body {
+body , html  {
     background-color: var(--secondary-color);
     line-height: 1.6;
     color: var(--text-color);
+}
+h1 { font-size: 2rem; }
+
+/* 2. Layout Components */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Header Styles */
@@ -94,31 +101,6 @@ body {
 .cta-button:hover {
     background-color: var(--secondary-color);
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-    
-    .hamburger span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--text-color);
-        margin: 5px 0;
-    }
-    
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-}
-
 /* Footer Styles */
 footer {
     background-color: var(--primary-color);
@@ -148,6 +130,58 @@ footer {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .speakers-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+     .speakers-grid {
+            grid-template-columns: 1fr;
+        }
+            .about-content h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content .lead {
+                font-size: 1.2rem;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+   
+                .schedule-item {
+                    grid-template-columns: 1fr;
+                    gap: 0.5rem;
+                }  
+    
 }
 /* Contact Form Styles */
 
@@ -262,12 +296,6 @@ footer {
     color: var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-}
-
 .speakers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -330,17 +358,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 1200px) {
-    .speakers-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media (max-width: 768px) {
-    .speakers-grid {
-        grid-template-columns: 1fr;
-    }
-}
   
 /* Schedule Styles */
 .schedule-section {
@@ -404,12 +422,7 @@ footer {
     margin-top: 0.5rem;
 }
 
-@media (max-width: 768px) {
-    .schedule-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-}
+
 /* About Page Styles */
 .about-page {
     padding-top: 60px;
@@ -503,19 +516,7 @@ footer {
     color: var(--primary-color);
 }
 
-@media (max-width: 768px) {
-    .about-content h2 {
-        font-size: 2rem;
-    }
-    
-    .about-content .lead {
-        font-size: 1.2rem;
-    }
-    
-    .highlights-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 /* Speakers Page Styles */
 .speakers-page {
     padding-top: 60px;
@@ -726,4 +727,112 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
+}
+
+/* Make images and videos responsive */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ... existing code remains unchanged until mobile styles ... */
+
+/* Consolidated Mobile Styles */
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: var(--primary-color);
+        padding: 2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        display: none;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--white);
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero-content {
+        padding: 1rem;
+        margin-top: 60px;
+        width: 90%;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Countdown */
+    .countdown-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    /* CTA Button */
+    .cta-button {
+        width: 80%;
+        margin-top: 10px;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Grid Layouts */
+    .contact-container,
+    .schedule-grid,
+    .speakers-grid,
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Form Elements */
+    .registration-form,
+    .contact-form {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .countdown-item {
+        min-width: 100%;
+    }
+}
+
+
+/* Use rem instead of px */
+h1 {
+    font-size: 2rem;
+}
+
+body, html {
+    overflow-x: hidden;
 }

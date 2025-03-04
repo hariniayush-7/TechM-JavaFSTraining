@@ -1,9 +1,65 @@
-// Mobile Menu Toggle
+/* Enhanced JavaScript for Mobile Interactions */
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const body = document.querySelector('body');
 
+// Toggle mobile menu
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    }
+});
+
+// Close menu on link click
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        body.style.overflow = '';
+    });
+});
+
+// Smooth scroll for anchor links
+const smoothScroll = (target, duration) => {
+    const targetPosition = document.querySelector(target).offsetTop;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const animation = currentTime => {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    const ease = (t, b, c, d) => -c * (t /= d) * (t - 2) + b;
+
+    requestAnimationFrame(animation);
+};
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        smoothScroll(this.getAttribute('href'), 800);
+    });
+});
+
+console.log('Mobile enhancements loaded successfully!');
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        smoothScroll(this.getAttribute('href'), 800);
+    });
 });
 
 function updateCountdown() {
