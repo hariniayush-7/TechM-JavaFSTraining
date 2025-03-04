@@ -62,7 +62,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         smoothScroll(this.getAttribute('href'), 800);
     });
 });
-
 // Countdown Timer
 function updateCountdown() {
     const currentDate = new Date();
@@ -82,38 +81,34 @@ function updateCountdown() {
             countdownElement.innerHTML = `
                 <div class="countdown-container">
                     <div class="countdown-item">
-                        <span class="countdown-number">${days}</span>
-                        <span class="countdown-label">Days</span>
+                        <div class="countdown-number">${String(days).padStart(2, '0')}</div>
+                        <div class="countdown-label">Days</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number">${hours}</span>
-                        <span class="countdown-label">Hours</span>
+                        <div class="countdown-number">${String(hours).padStart(2, '0')}</div>
+                        <div class="countdown-label">Hours</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number">${minutes}</span>
-                        <span class="countdown-label">Minutes</span>
+                        <div class="countdown-number">${String(minutes).padStart(2, '0')}</div>
+                        <div class="countdown-label">Minutes</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number">${seconds}</span>
-                        <span class="countdown-label">Seconds</span>
+                        <div class="countdown-number">${String(seconds).padStart(2, '0')}</div>
+                        <div class="countdown-label">Seconds</div>
                     </div>
                 </div>
             `;
         }
-    } else {
-        document.getElementById('countdown').innerHTML = `
-            <div class="countdown-container">
-                <h3>Event has started!</h3>
-            </div>
-        `;
     }
 }
 
-// Start the countdown
-if (document.getElementById('countdown')) {
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-}
+// Initialize countdown only when element exists
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('countdown')) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+});
 
 // Speakers Page Functionality
 async function loadSpeakers() {
