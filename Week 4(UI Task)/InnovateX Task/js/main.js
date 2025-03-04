@@ -6,6 +6,7 @@ const body = document.querySelector('body');
 // Toggle mobile menu
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
     body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 });
 
@@ -62,42 +63,57 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Countdown Timer
 function updateCountdown() {
-    const targetDate = new Date('2025-06-15T09:00:00').getTime();
-    const now = new Date().getTime();
-    const timeLeft = targetDate - now;
+    const currentDate = new Date();
+    const targetDate = new Date('2025-03-15T09:00:00');
+    
+    // Calculate the time remaining
+    const totalSeconds = Math.floor((targetDate - currentDate) / 1000);
+    
+    if (totalSeconds > 0) {
+        const days = Math.floor(totalSeconds / (24 * 60 * 60));
+        const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+        const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown').innerHTML = `
-        <div class="countdown-container">
-            <div class="countdown-item">
-                <span class="countdown-number">${days}</span>
-                <span class="countdown-label">Days</span>
+        const countdownElement = document.getElementById('countdown');
+        if (countdownElement) {
+            countdownElement.innerHTML = `
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-number">${days}</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number">${hours}</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number">${minutes}</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number">${seconds}</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            `;
+        }
+    } else {
+        document.getElementById('countdown').innerHTML = `
+            <div class="countdown-container">
+                <h3>Event has started!</h3>
             </div>
-            <div class="countdown-item">
-                <span class="countdown-number">${hours}</span>
-                <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number">${minutes}</span>
-                <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number">${seconds}</span>
-                <span class="countdown-label">Seconds</span>
-            </div>
-        </div>
-    `;
+        `;
+    }
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-
+// Start the countdown
+if (document.getElementById('countdown')) {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
 
 // Speakers Page Functionality
 async function loadSpeakers() {

@@ -826,8 +826,6 @@ img, video {
         min-width: 100%;
     }
 }
-
-
 /* Use rem instead of px */
 h1 {
     font-size: 2rem;
@@ -835,4 +833,35 @@ h1 {
 
 body, html {
     overflow-x: hidden;
+}
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+    .countdown-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .countdown-item {
+        min-width: 140px;
+        margin: 5px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+    }
 }
