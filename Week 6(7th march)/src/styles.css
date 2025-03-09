@@ -1,0 +1,153 @@
+/* === General Styles === */
+body {
+    background-color: #F0F5F4;  /* Soft, muted grayish-teal for the background */
+    color: #2F4F4F;  /* Dark slate gray for text */
+    padding: 20px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* === Header Styles (No Background) === */
+  header {
+    color: #577D73;  /* Slate Teal for text */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+  }
+  
+  /* === Navigation Links === */
+  nav a {
+    color: #577D73;  /* Slate Teal */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #4E6E65;  /* Darker teal for hover */
+  }
+  
+  /* === Active Link Indicator === */
+  nav a.active {
+    color: #4E6E65;  /* Darker Teal for active link */
+    border-bottom: 2px solid #4E6E65;  /* Underline for active */
+  }
+  
+  /* === Headings === */
+  h1, h2, h3 {
+    color: #577D73;  /* Slate Teal for headings */
+  }
+  
+  /* === Paragraphs === */
+  p {
+    line-height: 1.6;
+  }
+  
+  /* === Links === */
+  a {
+    color: #577D73;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #4E6E65;  /* Darker teal for hover */
+  }
+  
+  /* === Buttons === */
+  .btn, .apply-btn {
+    background-color: #A7C4BC;  /* Light Teal */
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn:hover, .apply-btn:hover {
+    background-color: #4E6E65;  /* Darker Teal on hover */
+    transform: scale(1.05);  /* Slight pop effect */
+  }
+  
+  /* === Job Cards === */
+  .job-card, .card {
+    background-color: #FFFFFF;
+    border: 1px solid #A7C4BC;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s;
+  }
+  
+  .job-card:hover, .card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);  /* Soft shadow on hover */
+  }
+  
+  /* === User Info (Logout) === */
+  .user-info {
+    color: #577D73;  /* Slate Teal for user info */
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+  }
+  
+  .user-info:hover {
+    color: #4E6E65;  /* Darker Teal for hover */
+  }
+  
+  /* === Footer Styles === */
+  footer {
+    background-color: #F0F5F4;
+    color: #2F4F4F;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #A7C4BC;
+    margin-top: 20px;
+  }
+  /* === Buttons (Including Login) === */
+.btn, .apply-btn, .login-btn {
+    background-color: #577D73;  /* Slate Teal */
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .btn:hover, .apply-btn:hover, .login-btn:hover {
+    background-color: #4E6E65;  /* Darker Teal on hover */
+    transform: scale(1.05);  /* Slight pop effect */
+  }
+  .job-detail-container {
+    background-color: #F2F4F3;  /* Soft gray background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .job-title {
+    color: #577D73;  /* Slate Teal for titles */
+  }
+  
+  .apply-btn {
+    background-color: #577D73;  /* Slate Teal */
+    color: #fff;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .apply-btn:hover {
+    background-color: #4E6E65;  /* Darker teal on hover */
+  }
+    

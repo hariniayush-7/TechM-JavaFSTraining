@@ -1,0 +1,23 @@
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.username {
+    font-weight: bold;
+    color: #577D73;  /* Slate teal color */
+}
+
+.logout-btn, .login-btn {
+    background-color: #577D73;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover, .login-btn:hover {
+    background-color: #466960;
+}

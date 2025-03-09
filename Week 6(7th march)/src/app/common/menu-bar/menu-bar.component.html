@@ -1,0 +1,18 @@
+<header>
+  <div class="logo">CareerConnect</div>
+  <nav>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/jobs">Job Lists</a>
+  </nav>
+
+  <div class="auth-section">
+      <ng-container *ngIf="userName; else loginLink">
+          <span class="username">Hello, {{ userName }}!</span>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-template #loginLink>
+          <button class="login-btn" routerLink="/login">Login</button>
+      </ng-template>
+  </div>
+</header>

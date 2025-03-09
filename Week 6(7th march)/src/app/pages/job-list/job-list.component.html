@@ -1,0 +1,18 @@
+  <div>
+    <input type="text" placeholder="Filter by title" [(ngModel)]="titleFilter">
+    <input type="number" placeholder="Min Salary" [(ngModel)]="salaryFilter">
+  </div>
+  
+  <div *ngFor="let job of jobs | jobFilter:titleFilter:salaryFilter">
+    <h3>{{ job.title }} - ${{ job.salary ? job.salary : 'N/A' }}</h3>
+    <p>{{ job.company }}</p>
+    <p>{{ job.location }}</p>
+    <button class="apply-btn" (click)="viewJobDetails(job.id)">Apply Now</button>
+  </div>
+  
+  <div class="job-card" *ngFor="let job of jobs">
+    <h3>{{ job.title }}</h3>
+    <p>{{ job.company }}</p>
+    <p>{{ job.location }}</p>
+    <button class="apply-btn" (click)="viewJobDetails(job.id)">Apply Now</button>
+  </div>

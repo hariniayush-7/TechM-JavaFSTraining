@@ -1,0 +1,24 @@
+<div class="login-container">
+    <h2 *ngIf="isSignUpMode">Sign Up</h2>
+    <h2 *ngIf="!isSignUpMode">Login</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <!-- Sign-Up Fields -->
+      <div *ngIf="isSignUpMode">
+        <input type="text" placeholder="Name" [(ngModel)]="user.name" name="name" required />
+        <input type="text" placeholder="Institution" [(ngModel)]="user.institution" name="institution" required />
+      </div>
+  
+      <!-- Common Fields -->
+      <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required />
+      <input type="tel" placeholder="Phone Number" [(ngModel)]="user.phone" name="phone" required pattern="[0-9]{10}" />
+      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required />
+  
+      <button type="submit">{{ isSignUpMode ? 'Sign Up' : 'Login' }}</button>
+    </form>
+  
+    <p (click)="toggleMode()">
+      {{ isSignUpMode ? 'Already have an account? Login' : 'New user? Sign Up' }}
+    </p>
+  </div>
+  
