@@ -1,0 +1,229 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Frontend Developer",
+      "company": "TechWave",
+      "location": "San Francisco, CA",
+      "description": "Build and optimize front-end UIs.",
+      "salary": 85000,
+      "requirements": ["HTML", "CSS", "JavaScript", "React"]
+    },
+    {
+      "id": 2,
+      "title": "Backend Developer",
+      "company": "CloudCore",
+      "location": "New York, NY",
+      "description": "Design and implement APIs.",
+      "salary": 95000,
+      "requirements": ["Node.js", "Express", "MongoDB", "RESTful APIs"]
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Developer",
+      "company": "InnoTech",
+      "location": "Austin, TX",
+      "description": "Work on both front-end and back-end.",
+      "salary": 105000,
+      "requirements": ["React", "Node.js", "SQL", "AWS"]
+    },
+    {
+      "id": 4,
+      "title": "Data Analyst",
+      "company": "DataSolve",
+      "location": "Seattle, WA",
+      "description": "Analyze datasets for business insights.",
+      "salary": 80000,
+      "requirements": ["Python", "SQL", "Tableau", "Excel"]
+    },
+    {
+      "id": 5,
+      "title": "DevOps Engineer",
+      "company": "FlowOps",
+      "location": "Denver, CO",
+      "description": "Manage CI/CD pipelines.",
+      "salary": 95000,
+      "requirements": ["Docker", "Kubernetes", "AWS", "CI/CD"]
+    },
+    {
+      "id": 6,
+      "title": "UX Designer",
+      "company": "CreativePulse",
+      "location": "Los Angeles, CA",
+      "description": "Design user-centric interfaces.",
+      "salary": 75000,
+      "requirements": ["Figma", "Sketch", "User Research"]
+    },
+    {
+      "id": 7,
+      "title": "Mobile App Developer",
+      "company": "Appify",
+      "location": "Chicago, IL",
+      "description": "Build cross-platform mobile apps.",
+      "salary": 90000,
+      "requirements": ["Flutter", "React Native", "Firebase"]
+    },
+    {
+      "id": 8,
+      "title": "AI Engineer",
+      "company": "DeepMind",
+      "location": "Boston, MA",
+      "description": "Develop AI models and systems.",
+      "salary": 120000,
+      "requirements": ["Python", "TensorFlow", "PyTorch", "ML"]
+    },
+    {
+      "id": 9,
+      "title": "Cybersecurity Analyst",
+      "company": "SecureNet",
+      "location": "Phoenix, AZ",
+      "description": "Protect systems from threats.",
+      "salary": 95000,
+      "requirements": ["Firewalls", "Penetration Testing", "Python"]
+    },
+    {
+      "id": 10,
+      "title": "Cloud Engineer",
+      "company": "SkyLabs",
+      "location": "Miami, FL",
+      "description": "Manage cloud infrastructure.",
+      "salary": 110000,
+      "requirements": ["AWS", "Azure", "Docker", "Terraform"]
+    },
+    {
+      "id": 11,
+      "title": "IT Support Specialist",
+      "company": "TechAid",
+      "location": "Atlanta, GA",
+      "description": "Provide technical support.",
+      "salary": 60000,
+      "requirements": ["Troubleshooting", "Windows", "Linux"]
+    },
+    {
+      "id": 12,
+      "title": "Blockchain Developer",
+      "company": "CryptoNet",
+      "location": "Remote",
+      "description": "Develop blockchain solutions.",
+      "salary": 130000,
+      "requirements": ["Solidity", "Ethereum", "Smart Contracts"]
+    },
+    {
+      "id": 13,
+      "title": "Game Developer",
+      "company": "PixelCraft",
+      "location": "San Diego, CA",
+      "description": "Develop video games.",
+      "salary": 90000,
+      "requirements": ["Unity", "C#", "3D Modeling"]
+    },
+    {
+      "id": 14,
+      "title": "Machine Learning Engineer",
+      "company": "AI Nexus",
+      "location": "San Francisco, CA",
+      "description": "Build ML models.",
+      "salary": 125000,
+      "requirements": ["Python", "TensorFlow", "Scikit-learn"]
+    },
+    {
+      "id": 15,
+      "title": "System Administrator",
+      "company": "NetSecure",
+      "location": "Dallas, TX",
+      "description": "Manage IT systems.",
+      "salary": 80000,
+      "requirements": ["Linux", "Bash", "Networking"]
+    },
+    {
+      "id": 16,
+      "title": "SEO Specialist",
+      "company": "MarketGenius",
+      "location": "Chicago, IL",
+      "description": "Optimize web content.",
+      "salary": 70000,
+      "requirements": ["SEO", "Google Analytics", "Content Marketing"]
+    },
+    {
+      "id": 17,
+      "title": "Technical Writer",
+      "company": "DocuPro",
+      "location": "Remote",
+      "description": "Write technical documents.",
+      "salary": 65000,
+      "requirements": ["Writing", "Markdown", "API Documentation"]
+    },
+    {
+      "id": 18,
+      "title": "Robotics Engineer",
+      "company": "RoboLab",
+      "location": "Detroit, MI",
+      "description": "Design robotics systems.",
+      "salary": 115000,
+      "requirements": ["C++", "ROS", "Automation"]
+    },
+    {
+      "id": 19,
+      "title": "Digital Marketing Manager",
+      "company": "AdSphere",
+      "location": "Los Angeles, CA",
+      "description": "Manage marketing campaigns.",
+      "salary": 95000,
+      "requirements": ["SEO", "AdWords", "Social Media"]
+    },
+    {
+      "id": 20,
+      "title": "Database Administrator",
+      "company": "DataCure",
+      "location": "Austin, TX",
+      "description": "Manage databases.",
+      "salary": 92000,
+      "requirements": ["SQL", "Oracle", "Backup Solutions"]
+    },
+    {
+      "id": 21,
+      "title": "Business Analyst",
+      "company": "InsightPro",
+      "location": "New York, NY",
+      "description": "Analyze business processes.",
+      "salary": 85000,
+      "requirements": ["Excel", "SQL", "Analytics"]
+    },
+    {
+      "id": 22,
+      "title": "QA Engineer",
+      "company": "TestCore",
+      "location": "Phoenix, AZ",
+      "description": "Test software applications.",
+      "salary": 80000,
+      "requirements": ["Selenium", "Java", "Test Automation"]
+    },
+    {
+      "id": 23,
+      "title": "Network Engineer",
+      "company": "NetSecure",
+      "location": "Dallas, TX",
+      "description": "Design and manage networks.",
+      "salary": 95000,
+      "requirements": ["Cisco", "Networking", "Firewalls"]
+    },
+    {
+      "id": 24,
+      "title": "Salesforce Developer",
+      "company": "CRM Pro",
+      "location": "Orlando, FL",
+      "description": "Develop Salesforce apps.",
+      "salary": 105000,
+      "requirements": ["Apex", "Salesforce", "APIs"]
+    },
+    {
+      "id": 25,
+      "title": "E-commerce Manager",
+      "company": "ShopEase",
+      "location": "San Francisco, CA",
+      "description": "Manage online store.",
+      "salary": 90000,
+      "requirements": ["Shopify", "SEO", "Analytics"]
+    }
+  ]
+}
