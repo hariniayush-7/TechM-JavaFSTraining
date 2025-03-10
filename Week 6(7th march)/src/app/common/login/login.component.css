@@ -29,4 +29,19 @@
   button:hover {
     background-color: #4E6E65;  /* Darker Teal on hover */
   }
-  
+  .error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.toggle-btn {
+    background-color: transparent;
+    color: #577D73;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+.toggle-btn:hover {
+    color: #4E6E65;
+}

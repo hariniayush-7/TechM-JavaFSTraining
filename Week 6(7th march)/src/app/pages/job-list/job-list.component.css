@@ -1,0 +1,53 @@
+.job-list-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .search-options, .my-applications {
+    background-color: #F5F5F5;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-lists {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #A7C4BC;
+    border-radius: 5px;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .apply-btn {
+    padding: 8px 12px;
+    margin-top: 10px;
+    background-color: #577D73;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .apply-btn:hover {
+    background-color: #4E6E65;
+  }
+  

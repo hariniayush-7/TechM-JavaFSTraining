@@ -7,7 +7,7 @@ import { Job } from '../model/job.model';
   providedIn: 'root'
 })
 export class JobService {
-  private apiUrl = 'http://localhost:4500/jobs';  // Your JSON Server URL
+  private apiUrl = 'http://localhost:5000/jobs';  // Your JSON Server URL
 
   constructor(private http: HttpClient) { }
 

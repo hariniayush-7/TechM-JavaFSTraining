@@ -1,24 +1,29 @@
 <div class="login-container">
-    <h2 *ngIf="isSignUpMode">Sign Up</h2>
-    <h2 *ngIf="!isSignUpMode">Login</h2>
+  <h2 *ngIf="isSignUpMode">Sign Up</h2>
+  <h2 *ngIf="!isSignUpMode">Login</h2>
   
-    <form (ngSubmit)="onSubmit()">
-      <!-- Sign-Up Fields -->
-      <div *ngIf="isSignUpMode">
-        <input type="text" placeholder="Name" [(ngModel)]="user.name" name="name" required />
-        <input type="text" placeholder="Institution" [(ngModel)]="user.institution" name="institution" required />
-      </div>
-  
-      <!-- Common Fields -->
-      <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required />
-      <input type="tel" placeholder="Phone Number" [(ngModel)]="user.phone" name="phone" required pattern="[0-9]{10}" />
-      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required />
-  
-      <button type="submit">{{ isSignUpMode ? 'Sign Up' : 'Login' }}</button>
-    </form>
-  
-    <p (click)="toggleMode()">
-      {{ isSignUpMode ? 'Already have an account? Login' : 'New user? Sign Up' }}
-    </p>
-  </div>
-  
+  <form (ngSubmit)="onSubmit()">
+    <div *ngIf="isSignUpMode">
+      <input type="text" placeholder="Name" [(ngModel)]="user.name" name="name" />
+      <div class="error" *ngIf="errors.name">{{ errors.name }}</div>
+
+      <input type="text" placeholder="Institution" [(ngModel)]="user.institution" name="institution" />
+      <div class="error" *ngIf="errors.institution">{{ errors.institution }}</div>
+
+      <input type="text" placeholder="Phone Number" [(ngModel)]="user.phone" name="phone" />
+      <div class="error" *ngIf="errors.phone">{{ errors.phone }}</div>
+    </div>
+
+    <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" />
+    <div class="error" *ngIf="errors.email">{{ errors.email }}</div>
+
+    <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" />
+    <div class="error" *ngIf="errors.password">{{ errors.password }}</div>
+
+    <button type="submit">{{ isSignUpMode ? 'Sign Up' : 'Login' }}</button>
+  </form>
+
+  <button (click)="toggleMode()" class="toggle-btn">
+    {{ isSignUpMode ? 'Already have an account? Login' : "Don't have an account? Sign Up" }}
+  </button>
+</div>
