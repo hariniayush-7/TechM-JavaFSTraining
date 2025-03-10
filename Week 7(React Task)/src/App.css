@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.game {
+  margin: 20px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+.choice-button {
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+}
+
+.btn-secondary {
+  margin-top: 20px;
+}
+
+.input-box {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.leaderboard {
+  text-align: center;
+  padding: 20px;
+}
+
+.leaderboard h1 {
+  margin-bottom: 20px;
+}
+
+.leaderboard p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.leaderboard .score-entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.leaderboard .score-entry:last-child {
+  border-bottom: none;
+}
