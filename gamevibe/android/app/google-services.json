@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711111316076",
+    "project_id": "fluttertask-6ca3e",
+    "storage_bucket": "fluttertask-6ca3e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711111316076:android:ea59d34011006218fa3e49",
+        "android_client_info": {
+          "package_name": "com.example.gamevibe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpLOiMC0KAHzQfYwT9l38oXVVGvMbWR9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
