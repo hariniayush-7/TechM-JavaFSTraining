@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import '../localization.dart';
 import 'rock_paper_scissors.dart';
+import 'snake_game.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onLanguageSwitch;
 
-  HomeScreen({required this.onLanguageSwitch});
+  const HomeScreen({super.key, required this.onLanguageSwitch});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -18,103 +19,170 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF212121), // Matte Black
+      backgroundColor: Color(0xFF212121),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).translate('welcome')),
-        backgroundColor: Color(0xFF3F51B5), // Royal Blue
+        title: Text(AppLocalizations.of(context).translate('app_title')),
+        backgroundColor: Color(0xFF3F51B5),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context).translate('welcome'),
+              AppLocalizations.of(context).translate('welcome') ,
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFFAFAFA), // Soft White
+                color: Color(0xFFFAFAFA),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
             Text(
-              AppLocalizations.of(context).translate('unleash_gamer'),
+              AppLocalizations.of(context).translate('tagline'),
               style: TextStyle(
-                fontSize: 18,
-                color: Colors.grey[600],
+                fontSize: 20,
+                color: Color(0xFFFF4081),
+                fontStyle: FontStyle.italic,
+                letterSpacing: 1.2,
               ),
             ),
-            SizedBox(height: 40),
-            Text(
-              AppLocalizations.of(context).translate('play'),
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFFFAFAFA), // Soft White
-              ),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: AppLocalizations.of(context).translate('enter_name'),
-                labelStyle: TextStyle(color: Color(0xFFFAFAFA)), // Soft White
-                filled: true,
-                fillColor: Colors.grey[800],
-              ),
-              style: TextStyle(color: Color(0xFFFAFAFA)), // Soft White
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                if (_usernameController.text.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RockPaperScissors(
-                        username: _usernameController.text,
+            SizedBox(height: 50),
+            // Update Snake game container
+            GestureDetector(
+              onTap: () => _showNameDialog(context, 'snake'),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color(0xFF424242),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/images/Snake_icon.png',
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Please enter your name')),
-                  );
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFFF4081), // Vivid Pink
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                textStyle: TextStyle(fontSize: 20),
+                    SizedBox(width: 20),
+                    Text(
+                      AppLocalizations.of(context).translate('snake_game'),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFAFAFA),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              child: Text(AppLocalizations.of(context).translate('rock_paper_scissors')),
+            ),
+            SizedBox(height: 20),
+            // Update Rock Paper Scissors container
+            GestureDetector(
+              onTap: () => _showNameDialog(context, 'rps'),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color(0xFF424242),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/images/RockPaperScissor_icon.png',
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Text(
+                      AppLocalizations.of(context).translate('rock_paper_scissors'),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFAFAFA),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: Container(
+      floatingActionButton: SizedBox(
         width: 150,
         height: 60,
         child: FloatingActionButton(
           onPressed: widget.onLanguageSwitch,
-          backgroundColor: Color(0xFFFF4081), // Vivid Pink
+          backgroundColor: Color(0xFFFF4081),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
             Localizations.localeOf(context).languageCode == 'en'
-                ? 'Switch to Español'
-                : 'Switch to English',
+                ? AppLocalizations.of(context).translate('switch_to_espanol') 
+                : AppLocalizations.of(context).translate('switch_to_english') ,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Color(0xFFFAFAFA), // Soft White
-              fontSize: 14,
-            ),
+            style: TextStyle(color: Color(0xFFFAFAFA), fontSize: 14),
           ),
         ),
       ),
+    );
+  }
+
+  void _showNameDialog(BuildContext context, String gameType) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Color(0xFF424242),
+          title: Text(
+            AppLocalizations.of(context).translate('enter_name_dialog'),
+            style: TextStyle(color: Color(0xFFFAFAFA)),
+          ),
+          content: TextField(
+            controller: _usernameController,
+            style: TextStyle(color: Color(0xFFFAFAFA)),
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context).translate('your_name'),
+              hintStyle: TextStyle(color: Color(0xFF9E9E9E)),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF3F51B5)),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              child: Text(
+                AppLocalizations.of(context).translate('play_button'),
+                style: TextStyle(color: Color(0xFFFF4081)),
+              ),
+              onPressed: () {
+                if (_usernameController.text.trim().isNotEmpty) {
+                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => gameType == 'snake'
+                          ? SnakeGame(username: _usernameController.text)
+                          : RockPaperScissors(username: _usernameController.text),
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

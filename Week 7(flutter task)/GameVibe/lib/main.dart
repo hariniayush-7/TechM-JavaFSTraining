@@ -11,6 +11,8 @@ void main() async {
 }
 
 class GameVibeApp extends StatefulWidget {
+  const GameVibeApp({super.key});
+
   @override
   _GameVibeAppState createState() => _GameVibeAppState();
 }

@@ -8,7 +8,7 @@ import 'firestore_service.dart';
 class RockPaperScissors extends StatefulWidget {
   final String username;
 
-  RockPaperScissors({required this.username});
+  const RockPaperScissors({super.key, required this.username});
 
   @override
   _RockPaperScissorsState createState() => _RockPaperScissorsState();
@@ -50,11 +50,11 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
 
   void _playSound(String result) async {
     if (result == AppLocalizations.of(context).translate('win')) {
-      await _audioPlayer.play(AssetSource('assets/sounds/happy_sound.wav'));
+      await _audioPlayer.play(AssetSource('sounds/happy_sound.wav'));
     } else if (result == AppLocalizations.of(context).translate('lose')) {
-      await _audioPlayer.play(AssetSource('assets/sounds/sad_sound.mp3'));
+      await _audioPlayer.play(AssetSource('sounds/sad_sound.mp3'));
     } else if (result == AppLocalizations.of(context).translate('draw')) {
-      await _audioPlayer.play(AssetSource('assets/sounds/draw_sound.wav'));
+      await _audioPlayer.play(AssetSource('sounds/draw_sound.wav'));
     }
   }
 
@@ -73,7 +73,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
           content: Text(message),
           actions: [
             TextButton(
-              child: Text('OK'),
+              child: Text(AppLocalizations.of(context).translate('ok')),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -86,94 +86,130 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF212121), // Matte Black
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context).translate('rock_paper_scissors')),
-        backgroundColor: Color(0xFF3F51B5), // Royal Blue
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            AppLocalizations.of(context).translate('choose_move'),
-            style: TextStyle(
-              fontSize: 24,
-              color: Color(0xFFFAFAFA), // Soft White
+    return PopScope(
+      canPop: _playCount == 0 || _playCount >= _maxPlays,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+        
+        final bool shouldPop = await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(AppLocalizations.of(context).translate('quit_game')),
+            content: Text(AppLocalizations.of(context).translate('quit_warning')),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(AppLocalizations.of(context).translate('stay')),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: Text(AppLocalizations.of(context).translate('leave')),
+              ),
+            ],
+          ),
+        ) ?? false;
+
+        if (shouldPop) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Color(0xFF212121),
+        appBar: AppBar(
+          title: Text(AppLocalizations.of(context).translate('rock_paper_scissors')),
+          backgroundColor: Color(0xFF3F51B5),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              AppLocalizations.of(context).translate('choose_move'),
+              style: TextStyle(
+                fontSize: 24,
+                color: Color(0xFFFAFAFA),
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: _choices.map((choice) {
-              return GestureDetector(
-                onTap: _playCount < _maxPlays ? () => _playGame(choice) : null,
-                child: Image.asset(
-                  'assets/images/${choice.toLowerCase()}.jpeg',
-                  width: 100,
-                  height: 100,
-                ),
-              );
-            }).toList(),
-          ),
-          SizedBox(height: 20),
-          Text(
-            '${AppLocalizations.of(context).translate('your_choice')} $_playerChoice',
-            style: TextStyle(
-              fontSize: 20,
-              color: Color(0xFFFAFAFA), // Soft White
-            ),
-          ),
-          Text(
-            '${AppLocalizations.of(context).translate('computer_choice')} $_computerChoice',
-            style: TextStyle(
-              fontSize: 20,
-              color: Color(0xFFFAFAFA), // Soft White
-            ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            _result,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFFFAFAFA), // Soft White
-            ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              if (_playCount < _maxPlays) {
-                _showAlert(
-                  AppLocalizations.of(context).translate('alert_title'),
-                  AppLocalizations.of(context).translate('alert_message'),
-                );
-              } else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Leaderboard(game: 'Rock-Paper-Scissors'),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: _choices.map((choice) {
+                return GestureDetector(
+                  onTap: _playCount < _maxPlays ? () => _playGame(choice) : null,
+                  child: Image.asset(
+                    'assets/images/${choice.toLowerCase()}.jpeg',
+                    width: 100,
+                    height: 100,
                   ),
                 );
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFFF4081), // Vivid Pink
+              }).toList(),
             ),
-            child: Text(AppLocalizations.of(context).translate('view_leaderboard')),
-          ),
-          SizedBox(height: 20),
-          if (_playCount >= _maxPlays)
+            SizedBox(height: 20),
             Text(
-              AppLocalizations.of(context).translate('game_over'),
+              '${AppLocalizations.of(context).translate('your_choice')} $_playerChoice',
+              style: TextStyle(
+                fontSize: 20,
+                color: Color(0xFFFAFAFA),
+              ),
+            ),
+            Text(
+              '${AppLocalizations.of(context).translate('computer_choice')} $_computerChoice',
+              style: TextStyle(
+                fontSize: 20,
+                color: Color(0xFFFAFAFA),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              _result,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFFF4081), // Vivid Pink
+                color: Color(0xFFFAFAFA),
               ),
             ),
-        ],
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                if (_playCount < _maxPlays) {
+                  _showAlert(
+                    AppLocalizations.of(context).translate('alert_title'),
+                    AppLocalizations.of(context).translate('alert_message'),
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Leaderboard(game: 'Rock-Paper-Scissors'),
+                    ),
+                  );
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFFFF4081),
+              ),
+              child: Text(AppLocalizations.of(context).translate('view_leaderboard')),
+            ),
+            SizedBox(height: 20),
+            if (_playCount >= _maxPlays)
+              Text(
+                AppLocalizations.of(context).translate('game_over'),
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFF4081),
+                ),
+              ),
+          ],
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 }
