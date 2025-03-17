@@ -4,8 +4,9 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'scoreboard_screen.dart';
+import 'Snake_scoreboard_screen.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'firebase_viewer.dart';
 
 class SnakeGame extends StatefulWidget {
   final String username;
@@ -161,11 +162,21 @@ class _SnakeGameState extends State<SnakeGame> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(AppLocalizations.of(context).translate('game_over')),
-            content: Text('${AppLocalizations.of(context).translate('score')}: $score'),
+            backgroundColor: Color(0xFF424242),
+            title: Text(
+              AppLocalizations.of(context).translate('game_over'),
+              style: TextStyle(color: Colors.white),
+            ),
+            content: Text(
+              '${AppLocalizations.of(context).translate('score')}: $score',
+              style: TextStyle(color: Colors.white),
+            ),
             actions: <Widget>[
               TextButton(
-                child: Text(AppLocalizations.of(context).translate('view_scoreboard')),
+                child: Text(
+                  AppLocalizations.of(context).translate('view_scoreboard'),
+                  style: TextStyle(color: Color(0xFFFF4081)),
+                ),
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
@@ -178,7 +189,25 @@ class _SnakeGameState extends State<SnakeGame> {
                 },
               ),
               TextButton(
-                child: Text(AppLocalizations.of(context).translate('play_again')),
+                child: Text(
+                  'View in Firebase',
+                  style: TextStyle(color: Color(0xFFFF4081)),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => FirebaseViewer(
+                        url: 'https://console.firebase.google.com/project/fluttertask-6ca3e/firestore/databases/-default-/data/~2Fsnake_scores?fb_gclid=Cj0KCQjwkN--BhDkARIsAD_mnIrMiyV7aiBgO_YFAvTt4LfVHBMxgbk2qmqxqWhhAUrGfKoBg1cWz4kaAlzYEALw_wcB',
+                      ),
+                    ),
+                  );
+                },
+              ),
+              TextButton(
+                child: Text(
+                  AppLocalizations.of(context).translate('play_again'),
+                  style: TextStyle(color: Color(0xFFFF4081)),
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                   setState(() {

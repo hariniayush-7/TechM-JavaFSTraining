@@ -4,6 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import '../localization.dart';
 import 'leaderboard.dart';
 import 'firestore_service.dart';
+import 'firebase_viewer.dart';
 
 class RockPaperScissors extends StatefulWidget {
   final String username;
@@ -16,6 +17,7 @@ class RockPaperScissors extends StatefulWidget {
 
 class _RockPaperScissorsState extends State<RockPaperScissors> {
   final List<String> _choices = ['Rock', 'Paper', 'Scissors'];
+  final List<String> _results = [];  // Add this line to track results
   String _playerChoice = '';
   String _computerChoice = '';
   String _result = '';
@@ -29,6 +31,7 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
       _playerChoice = playerChoice;
       _computerChoice = _choices[Random().nextInt(3)];
       _result = _determineWinner(_playerChoice, _computerChoice);
+      _results.add(_result);  // Add this line to store the result
       _playSound(_result);
       _saveScore(_result);
       _playCount++;
@@ -60,10 +63,19 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
 
   void _saveScore(String result) {
     if (result == AppLocalizations.of(context).translate('win')) {
-      _firestoreService.saveHighScore('Rock-Paper-Scissors', widget.username, 1);
+      if (_playCount == _maxPlays - 1) {  // On last game
+        // Save total score instead of individual wins
+        int totalWins = _getTotalWins();
+        _firestoreService.saveHighScore('Rock-Paper-Scissors', widget.username, totalWins);
+      }
     }
   }
 
+  int _getTotalWins() {
+    // Count total wins in the current session
+    return _results.where((result) => 
+      result == AppLocalizations.of(context).translate('win')).length;
+  }
   void _showAlert(String title, String message) {
     showDialog(
       context: context,
@@ -178,11 +190,52 @@ class _RockPaperScissorsState extends State<RockPaperScissors> {
                     AppLocalizations.of(context).translate('alert_message'),
                   );
                 } else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Leaderboard(game: 'Rock-Paper-Scissors'),
-                    ),
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        backgroundColor: Color(0xFF424242),
+                        title: Text(
+                          'View Scores',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        actions: [
+                          TextButton(
+                            child: Text(
+                              AppLocalizations.of(context).translate('view_leaderboard'),
+                              style: TextStyle(color: Color(0xFFFF4081)),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Leaderboard(
+                                    game: 'Rock-Paper-Scissors',
+                                    username: widget.username,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                          TextButton(
+                            child: Text(
+                              'View in Firebase',
+                              style: TextStyle(color: Color(0xFFFF4081)),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FirebaseViewer(
+                                    url: 'https://console.firebase.google.com/project/fluttertask-6ca3e/firestore/databases/-default-/data/~2Fhigh_scores?fb_gclid=Cj0KCQjwkN--BhDkARIsAD_mnIrMiyV7aiBgO_YFAvTt4LfVHBMxgbk2qmqxqWhhAUrGfKoBg1cWz4kaAlzYEALw_wcB',
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      );
+                    },
                   );
                 }
               },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../localization.dart';
 import 'rock_paper_scissors.dart';
 import 'snake_game.dart';
+import 'whack_a_mole.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onLanguageSwitch;
@@ -115,6 +116,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            // After Rock Paper Scissors container
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () => _showNameDialog(context, 'mole'),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color(0xFF424242),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/images/whack-a-mole_icon.png',
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Text(
+                      AppLocalizations.of(context).translate('whack_a_mole'),
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFAFAFA),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -172,9 +207,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => gameType == 'snake'
-                          ? SnakeGame(username: _usernameController.text)
-                          : RockPaperScissors(username: _usernameController.text),
+                      builder: (context) {
+                        switch (gameType) {
+                          case 'snake':
+                            return SnakeGame(username: _usernameController.text);
+                          case 'rps':
+                            return RockPaperScissors(username: _usernameController.text);
+                          case 'mole':
+                            return WhackAMole(username: _usernameController.text);
+                          default:
+                            return SnakeGame(username: _usernameController.text);
+                        }
+                      },
                     ),
                   );
                 }
