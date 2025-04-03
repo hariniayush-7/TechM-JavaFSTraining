@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bookworm's Haven</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-button">📖 Home</a></li>
+                <li><a href="books.html" class="nav-button">📚 Books</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e4;
+            text-align: center;
+            padding: 20px;
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .contact-form {
+            padding: 20px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact-form label {
+            text-align: left;
+            color: #5a3e36;
+            font-weight: bold;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .contact-form button {
+            background-color: #5a3e36;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #4a2e26;
+        }
+        h2 {
+            color: #5a3e36;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #5a3e36;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        
+        .nav-button:hover {
+            background-color: #4a2e26;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        nav ul li {
+            display: inline;
+        }
+    </style>
+
+    <main>
+        <div class="contact-container">
+            <p>We're here to help! Whether you have questions about our collection, need assistance finding a particular book, or are looking to place an order, simply fill out the form below, and our team will respond promptly. Let us make your reading experience seamless and enjoyable!</p>
+            
+            <section class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form action="#" method="POST">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="queries">Message:</label>
+                    <textarea id="queries" name="queries" rows="4"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 BOOKWORM'S HAVEN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

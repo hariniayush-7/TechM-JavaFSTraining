@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Bookworm's Haven</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1> Explore Our Collection</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-button">📖 Home</a></li>
+                <li><a href="contact.html" class="nav-button">📬 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e4;
+            text-align: center;
+            padding: 20px;
+        }
+        .bookstore {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .book {
+            width: 200px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .book-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .book img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #5a3e36;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #5a3e36;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        
+        .nav-button:hover {
+            background-color: #4a2e26;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        nav ul li {
+            display: inline;
+        }
+    </style>
+    
+    <main>
+        <section class="book-list">
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1344545047i/1232.jpg" alt="The Night Circus">
+                <h2>The Night Circus</h2>
+                <p>By Erin Morgenstern - ₹450</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386924569i/127455.jpg" alt="The Lies of Locke Lamora">
+                <h2>The Lies of Locke Lamora</h2>
+                <p>By Scott Lynch - ₹520</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1459524472i/29430012.jpg" alt="A Gentleman in Moscow">
+                <h2>A Gentleman in Moscow</h2>
+                <p>By Amor Towles - ₹480</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1569514209i/45047384.jpg" alt="The House in the Cerulean Sea">
+                <h2>The House in the Cerulean Sea</h2>
+                <p>By TJ Klune - ₹470</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1522157426i/19063.jpg" alt="The Book Thief">
+                <h2>The Book Thief</h2>
+                <p>By Markus Zusak - ₹399</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1597575031i/49127718.jpg" alt="Anxious People">
+                <h2>Anxious People</h2>
+                <p>By Fredrik Backman - ₹430</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1602190253i/52578297.jpg" alt="The Midnight Library">
+                <h2>The Midnight Library</h2>
+                <p>By Matt Haig - ₹465</p>
+            </div>
+            <div class="book">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565909496i/35959740.jpg" alt="Circe">
+                <h2>Circe</h2>
+                <p>By Madeline Miller - ₹525</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 BOOKWORM'S HAVEN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

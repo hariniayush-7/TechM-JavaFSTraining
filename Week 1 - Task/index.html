@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Bookworm's Haven - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f1e4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .left-half {
+            flex: 1;
+            background-image: url('images/library.jpg');  /* Update this path */
+            background-size: cover;
+            background-position: center;
+        }
+        .right-half {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        header h1 {
+            color: #5a3e36;
+            margin-bottom: 30px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        nav ul li {
+            margin: 15px 0;
+        }
+        nav ul li a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #5a3e36;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #4a2e26;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        section h2 {
+            color: #5a3e36;
+        }
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+
+    <div class="container">
+        <div class="left-half"></div>
+        <div class="right-half">
+            <header>
+                <h1>📖 Welcome to Bookworm's Haven</h1>
+            </header>
+            <main>
+                <p>
+                    Welcome to <b>BOOKWORM'S HAVEN</b>, where every page holds a new adventure! Whether you're a fiction enthusiast, a knowledge seeker, or a casual reader, our collection is designed to inspire and captivate. From timeless classics to modern bestsellers, we bring stories that spark imagination and curiosity. Step into our world of books and let your next great read find you!
+                </p>
+            </main>
+            <nav>
+                <ul>
+                    <li><a href="books.html">📖 Browse Books</a></li>
+                    <li><a href="contact.html">📬 Contact Us</a></li>
+                </ul>
+            </nav>
+            <section>
+                <h2>📚 Explore Our Collection</h2>
+                <p>Dive into an extensive selection of books across multiple genres. Whether you're looking for thrilling adventures, heartwarming stories, or insightful knowledge, we have something for everyone.</p>
+            </section>
+            <footer>
+                <p>© 2025 BOOKWORM'S HAVEN. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
